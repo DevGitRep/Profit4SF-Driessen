@@ -1,0 +1,59 @@
+<apex:page standardcontroller="Quote" sidebar="false" showHeader="false" standardStylesheets="false" > 
+<apex:stylesheet value="{!URLFOR($Resource.style_resources, 'CustomCss.css')}"/> 
+
+
+<table >
+    <tr><td style="width:150px"><apex:outputText value="Bedrijf"/></td><td ><apex:outputText value=":"/></td><td ><apex:outputText value="{!quote.account.name}"/></td></tr>                  
+    <tr><td style="width:150px"><apex:outputText value="Contact persoon"/></td><td><apex:outputText value=":"/></td><td ><apex:outputText value="{!quote.contact.name}"/></td></tr>
+</table>
+<br></br>
+<table >
+    <tr><td style="width:150px"><apex:outputText value="Offertenummer"/></td><td><apex:outputText value=":"/></td><td ><apex:outputText value="{!Quote.QuoteNumber}"/></td></tr>
+    <tr><td style="width:150px"><apex:outputText value="Datum"/></td><td><apex:outputText value=":"/></td><td><apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!TODAY()}" /></apex:outputText></td></tr>     
+</table>
+<br></br>
+<br></br>
+<apex:outputText value="Geachte heer / mevrouw,"/><br></br>
+<br></br>
+<apex:outputText value="We kunnen u geheel vrijblijvend en op basis van onze algemene voorwaarden* aanbieden:"/><br></br>
+<br></br>
+<table >
+    <apex:repeat var="offerte" value="{!Quote.QuoteLineItems}">
+    <tr><td style="width:150px"><apex:outputText value="Product"/></td><td><apex:outputText value=":"/></td><td><apex:outputText value="{!offerte.product2.name}"/></td></tr>
+    <tr><td style="width:150px"><apex:outputText value="Kwaliteit"/></td><td><apex:outputText value=":"/></td><td><apex:outputText value="{!offerte.product2.name}"/></td></tr>
+    <tr><td style="width:150px"><apex:outputText value="Hoeveelheid"/></td><td><apex:outputText value=":"/></td><td><apex:outputText value="{!offerte.Quantity}"/></td></tr>
+    <tr><td style="width:150px"><apex:outputText value="Verpakking"/></td><td><apex:outputText value=":"/></td><td><apex:outputfield value="{!offerte.Verpakking_IC__c}"/></td></tr>
+    <tr><td style="width:150px"><apex:outputText value="Prijs"/></td><td><apex:outputText value=":"/></td><td><apex:outputText value="{!offerte.TotalPrice}"/></td></tr>
+    <tr><td style="width:150px"><apex:outputText value="Levercondities"/></td><td><apex:outputText value=":"/></td><td><apex:outputText value="{!quote.Incoterms__c}"/></td></tr>
+    <tr><td style="width:150px"><apex:outputText value="Betalingsconditie"/></td><td><apex:outputText value=":"/></td><td><apex:outputfield value="{!quote.Betalingstermijn__c}"/></td></tr>
+    <tr><td style="width:150px"><apex:outputText value="Levertijd "/></td><td><apex:outputText value=":"/></td><td><apex:outputText value="{!quote.Delivery_time__c}"/></td></tr>
+    <tr><td style="width:150px"><apex:outputText value="Leverperiode "/></td><td><apex:outputText value=":"/></td><td><apex:outputText value="{!quote.Delivery_time__c}"/></td></tr>
+    <tr><td style="width:150px"><apex:outputText value="Geldigheid offerte"/></td><td><apex:outputText value=":"/></td><td><apex:outputText value="{0,date,dd/MM/yyyy}"> <apex:param value="{!quote.ExpirationDate}" /></apex:outputText></td></tr>
+    <tr><td style="width:150px"><apex:outputText value="Opmerkingen(en)"/></td><td><apex:outputText value=":"/></td><td><apex:outputText value="{!quote.Description}"/></td></tr>   
+    <!-- empty selectItem-->
+    </apex:repeat>
+</table>
+<br></br>
+<apex:outputText style="width: 255px " value="We vertrouw erop u hiermee een passend voorstel te hebben gemaakt en zie uw reactie met belangstelling tegemoet."/><br></br>
+<br></br>
+<br></br>
+<br></br>
+<apex:outputText value="Met vriendelijke groet,"/><br></br>
+<apex:outputText value="Castor International,"/><br></br>
+<br></br>
+<apex:outputText value="Arthur de Raad / Joerg Kramberg"/><br></br>
+<br></br>
+<br></br>
+<br></br>
+
+<apex:outputText style="font-size:10pt;" value="* Onze algemene voorwaarden zijn de te downloaden van onze website"/><br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+<br></br>
+
+
+</apex:page>
