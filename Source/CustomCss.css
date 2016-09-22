@@ -1,0 +1,10 @@
+body { background-image: url(img/Castor_logo1.jpg); 
+margin-left: 2cm;
+width: 17cm;
+margin-top: 8.7cm;
+background-color: #ffffff; 
+background-size: 21cm;
+background-repeat: no-repeat;
+}
+
+@page { size: 8.27in 11.69in; /* A4 width and height */ }
